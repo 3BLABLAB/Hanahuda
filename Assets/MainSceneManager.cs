@@ -6,23 +6,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using UnityEditor;
 
-public class Huda
-{
-    public int Tsuki;
-    public int Order;
-};
-
-
-public class Main : MonoBehaviour
+public class MainSceneManager : MonoBehaviour
 {
     //花札のカードを定義
     //順番はhttps://hanafudazukan.hatenablog.com/を参照
     //ただし9月(菊)は青短と菊を入れ替える
     private bool[,] Bahuda_Appeared = new bool[12, 4];
-    private bool[,] A_Mochihuda =new bool[12, 4], B_Mochihuda=new bool [12, 4];
+    public bool[,] A_Mochihuda =new bool[12, 4], B_Mochihuda=new bool [12, 4];
     //場札：12か月分、重複の可能性あり
     //一か月あたり一つのList
-    List<Huda>[] Bahuda=new List<Huda>[12];
+    List<List <Huda>>[] Bahuda=new List<List<Huda>>[12];
     private List<Huda>[] A_Tehuda = new List<Huda>[8];
     private List<Huda>[] B_Tehuda = new List<Huda>[8];
 
@@ -53,7 +46,6 @@ public class Main : MonoBehaviour
         Roles.Add(Kasu(Is_A));
         return Roles;
     }
-
     //五光、四光、三光をチェックする(排他)
     private string Goko(bool Is_A = true)
     {
@@ -90,18 +82,18 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    public string HanamiDeIppai(bool Is_A = true)
+    private string HanamiDeIppai(bool Is_A = true)
     {
         if (Is_A)
         {
-            if (A_Mochihuda[2,0] && A_Mochihuda[8, 1])
+            if (A_Mochihuda[2, 0] && A_Mochihuda[8, 1])
             {
                 return "HanamiDeIppai";
             }
         }
         else
         {
-            if (B_Mochihuda[2,0] && B_Mochihuda[8, 1])
+            if (B_Mochihuda[2, 0] && B_Mochihuda[8, 1])
             {
                 return "HanamiDeIppai";
             }
@@ -109,7 +101,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    public string TsukimiDeIppai(bool Is_A = true)
+    private string TsukimiDeIppai(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -128,11 +120,11 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    public string Inoshikacho(bool Is_A = true)
+    private string Inoshikacho(bool Is_A = true)
     {
         if (Is_A)
         {
-            if (A_Mochihuda[5,0] && A_Mochihuda[6, 0] && A_Mochihuda[9, 0])
+            if (A_Mochihuda[5, 0] && A_Mochihuda[6, 0] && A_Mochihuda[9, 0])
             {
                 return "TsukimiDeIppai";
             }
@@ -147,7 +139,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    public string Akatan(bool Is_A = true)
+    private string Akatan(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -166,7 +158,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    public string Aotan(bool Is_A = true)
+    private string Aotan(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -185,7 +177,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    public string Tane(bool Is_A)
+    private string Tane(bool Is_A)
     {
         int count = 0;
         if (Is_A)
@@ -223,7 +215,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    public string Tan(bool Is_A)
+    private string Tan(bool Is_A)
     {
         int count = 0;
         if (Is_A)
@@ -262,15 +254,15 @@ public class Main : MonoBehaviour
         }
         return "";
     }
-    public string Kasu(bool Is_A)
+    private string Kasu(bool Is_A)
     {
         int count = 0;
         if (Is_A)
         {
-            for(int i = 0; i < 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 //1-10月まではカスの位置が同じ
-                for(int j = 2; j < 4; j++)
+                for (int j = 2; j < 4; j++)
                 {
                     if (A_Mochihuda[i, j]) count++;
                 }
@@ -309,5 +301,6 @@ public class Main : MonoBehaviour
         }
         return "";
     }
+
 }
 

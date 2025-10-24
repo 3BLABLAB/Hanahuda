@@ -1341,6 +1341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1234261050}
   - component: {fileID: 1234261049}
+  - component: {fileID: 1234261051}
   m_Layer: 0
   m_Name: MainSceneManager
   m_TagString: Untagged
@@ -1375,6 +1376,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1234261051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234261048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9af3f00a158554682e1abea8429ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tsuki: 0
+  Order: 0
 --- !u!4 &1265833783 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435441252375440279, guid: 9dcc91248fb27274baf18803bcae40e4, type: 3}
@@ -1869,7 +1884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1760377054116454931, guid: 9dcc91248fb27274baf18803bcae40e4, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487770617934907187, guid: 9dcc91248fb27274baf18803bcae40e4, type: 3}
       propertyPath: m_Name
