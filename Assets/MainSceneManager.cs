@@ -10,21 +10,21 @@ public class Huda
 {
     public int Tsuki;
     public int Order;
-}
+};
+
+
 public class Main : MonoBehaviour
 {
     //‰ÔD‚ÌƒJ[ƒh‚ğ’è‹`
     //‡”Ô‚Íhttps://hanafudazukan.hatenablog.com/‚ğQÆ
     //‚½‚¾‚µ9Œ(‹e)‚ÍÂ’Z‚Æ‹e‚ğ“ü‚ê‘Ö‚¦‚é
     private bool[,] Bahuda_Appeared = new bool[12, 4];
-    //private bool[,] A_Tehuda = new bool[12, 4];
-    //private bool[,] B_Tehuda = new bool[12, 4];
     private bool[,] A_Mochihuda =new bool[12, 4], B_Mochihuda=new bool [12, 4];
     //êDF12‚©Œ•ªAd•¡‚Ì‰Â”\«‚ ‚è
     //ˆê‚©Œ‚ ‚½‚èˆê‚Â‚ÌList
     List<Huda>[] Bahuda=new List<Huda>[12];
-    private Huda[] A_Tehuda = new Huda[8];
-    private Huda[] B_Tehuda = new Huda[8];
+    private List<Huda>[] A_Tehuda = new List<Huda>[8];
+    private List<Huda>[] B_Tehuda = new List<Huda>[8];
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +90,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    private string HanamiDeIppai(bool Is_A = true)
+    public string HanamiDeIppai(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -108,8 +108,8 @@ public class Main : MonoBehaviour
         }
         return "";
     }
-    
-    private string TsukimiDeIppai(bool Is_A = true)
+
+    public string TsukimiDeIppai(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -128,7 +128,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    private string Inoshikacho(bool Is_A = true)
+    public string Inoshikacho(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -147,7 +147,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    private string Akatan(bool Is_A = true)
+    public string Akatan(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -166,7 +166,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    private string Aotan(bool Is_A = true)
+    public string Aotan(bool Is_A = true)
     {
         if (Is_A)
         {
@@ -185,7 +185,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    private string Tane(bool Is_A)
+    public string Tane(bool Is_A)
     {
         int count = 0;
         if (Is_A)
@@ -223,7 +223,7 @@ public class Main : MonoBehaviour
         return "";
     }
 
-    private string Tan(bool Is_A)
+    public string Tan(bool Is_A)
     {
         int count = 0;
         if (Is_A)
@@ -262,7 +262,7 @@ public class Main : MonoBehaviour
         }
         return "";
     }
-    private string Kasu(bool Is_A)
+    public string Kasu(bool Is_A)
     {
         int count = 0;
         if (Is_A)
