@@ -94,14 +94,14 @@ public class Main : MonoBehaviour
     {
         if (Is_A)
         {
-            if (A_Mochihuda[2,0] && A_Mochihuda[7, 1])
+            if (A_Mochihuda[2,0] && A_Mochihuda[8, 1])
             {
                 return "HanamiDeIppai";
             }
         }
         else
         {
-            if (B_Mochihuda[2,0] && B_Mochihuda[7, 1])
+            if (B_Mochihuda[2,0] && B_Mochihuda[8, 1])
             {
                 return "HanamiDeIppai";
             }
@@ -218,6 +218,93 @@ public class Main : MonoBehaviour
             if (count >= 5)
             {
                 return "Tane" + (char)(count - 4);
+            }
+        }
+        return "";
+    }
+
+    private string Tan(bool Is_A)
+    {
+        int count = 0;
+        if (Is_A)
+        {
+            if (A_Mochihuda[0, 1]) count++;
+            if (A_Mochihuda[1, 1]) count++;
+            if (A_Mochihuda[2, 1]) count++;
+            if (A_Mochihuda[3, 1]) count++;
+            if (A_Mochihuda[4, 1]) count++;
+            if (A_Mochihuda[5, 1]) count++;
+            if (A_Mochihuda[6, 1]) count++;
+            if (A_Mochihuda[8, 1]) count++;
+            if (A_Mochihuda[9, 1]) count++;
+            if (A_Mochihuda[10, 2]) count++;
+            if (count >= 5)
+            {
+                return "Tan" + (char)(count - 4);
+            }
+        }
+        else
+        {
+            if (B_Mochihuda[0, 1]) count++;
+            if (B_Mochihuda[1, 1]) count++;
+            if (B_Mochihuda[2, 1]) count++;
+            if (B_Mochihuda[3, 1]) count++;
+            if (B_Mochihuda[4, 1]) count++;
+            if (B_Mochihuda[5, 1]) count++;
+            if (B_Mochihuda[6, 1]) count++;
+            if (B_Mochihuda[8, 1]) count++;
+            if (B_Mochihuda[9, 1]) count++;
+            if (B_Mochihuda[10, 2]) count++;
+            if (count >= 5)
+            {
+                return "Tan" + (char)(count - 4);
+            }
+        }
+        return "";
+    }
+    private string Kasu(bool Is_A)
+    {
+        int count = 0;
+        if (Is_A)
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                //1-10月まではカスの位置が同じ
+                for(int j = 2; j < 4; j++)
+                {
+                    if (A_Mochihuda[i, j]) count++;
+                }
+            }
+            if (A_Mochihuda[10, 3]) count++;
+            //12月
+            for (int j = 1; j < 4; j++)
+            {
+                if (A_Mochihuda[11, j]) count++;
+            }
+            if (count >= 10)
+            {
+                return "Kasu" + (char)(count - 9);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                //1-10月まではカスの位置が同じ
+                for (int j = 2; j < 4; j++)
+                {
+                    if (B_Mochihuda[i, j]) count++;
+                }
+            }
+            if (B_Mochihuda[10, 3]) count++;
+            //12月
+            for (int j = 1; j < 4; j++)
+            {
+                if (B_Mochihuda[11, j]) count++;
+            }
+            if (count >= 10)
+            {
+                return "Kasu" + (char)(count - 9);
             }
         }
         return "";
