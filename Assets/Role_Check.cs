@@ -11,7 +11,26 @@ public class Role_Check : MonoBehaviour
     private MainSceneManager mainSceneManager;
     bool[,] A_Mochihuda, B_Mochihuda;
     bool Is_A;
-    public List<string> Check_ALL_Check(bool[,] A_Mochihuda, bool[,] B_Mochihuda, bool Is_A)
+    
+    //Start()より先に実行される
+    void Awake()
+    {
+        mainSceneManager=GetComponent<MainSceneManager>();
+        A_Mochihuda = mainSceneManager.A_Mochihuda;
+        B_Mochihuda = mainSceneManager.B_Mochihuda;
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public List<string> CheckALLRoles(bool[,] A_Mochihuda, bool[,] B_Mochihuda, bool Is_A)
     {
         //成立した役がappendされる配列
         List<string> Roles = new List<string> { };
@@ -26,20 +45,7 @@ public class Role_Check : MonoBehaviour
         Roles.Add(Kasu(Is_A));
         return Roles;
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
     //五光、四光、三光をチェックする(排他)
     private string Goko(bool Is_A = true)
     {

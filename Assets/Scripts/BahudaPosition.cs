@@ -29,7 +29,7 @@ public class BahudaPosition : MonoBehaviour
         corners[3] = pos + new Vector3(-scale.x / 2, scale.y / 2, 0);  // 左上
         lineRenderer.SetPositions(corners);
         //Debug.Log(corners[1]);
-        Debug.Log(pos);
+        //Debug.Log(pos);
 
         // ループを有効にして四角形を閉じる
         lineRenderer.loop = true;
