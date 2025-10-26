@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class SetUpManager : MonoBehaviour
 {
+    private MainSceneManager mainSceneManager;
+    private Huda Huda;
+    private bool[,] Bahuda_Appeared = new bool[12, 4];
+    public List<Huda>[] Bahuda ;
+    public Huda[] A_Tehuda ;
+    public Huda[] B_Tehuda;
+
     // 1. インスペクタから生成したいプレハブを設定
     [Header("生成するプレハブ")]
     public GameObject TehudaPrefab;
@@ -23,65 +30,130 @@ public class SetUpManager : MonoBehaviour
     public Vector3 TehudaSpawnScale = new Vector3(1, 1, 1);
     public Vector3 BahudaSpawnScale = new Vector3(1, 1, 1);
 
+    private void Awake()
+    {
+        mainSceneManager = GetComponent<MainSceneManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
+    }
+    public void SetUp()
+    {
+        //Awake()で代入すると順序がずれる可能性あり
+        Bahuda_Appeared = mainSceneManager.Bahuda_Appeared;
+        Bahuda = mainSceneManager.Bahuda;
+        A_Tehuda = mainSceneManager.A_Tehuda;
+        B_Tehuda = mainSceneManager.B_Tehuda;
         // プレハブが設定されているか確認
-        if (TehudaPrefab == null )
+        if (TehudaPrefab == null)
         {
             Debug.LogError("Object Prefab が設定されていません！");
             return;
         }
 
-        //場札を表示
-        foreach (Vector3 pos in spawnPositionsOfBahuda)
+        //場札を設定
+        while(true)  
         {
-            // 1. 座標と回転を指定してオブジェクトを生成
-            //    Vector3 の回転（オイラー角）を Quaternion に変換
+            int NewBahudaNum,mo,or ;
+            do
+            {
+                NewBahudaNum = UnityEngine.Random.Range(0, 48);//0-47
+                mo = NewBahudaNum / 4;
+                or = NewBahudaNum % 4;
+            } while (Bahuda_Appeared[mo, or]);
+            Bahuda_Appeared[mo, or] = true;
+
+            // 座標と回転を指定してオブジェクトを生成
             GameObject newObject = Instantiate(
                 BahudaPrefab,
-                pos,
-                Quaternion.Euler(spawnRotation)
+                spawnPositionsOfBahuda[mo],
+                Quaternion.Euler(spawnRotation)// Vector3 の回転（オイラー角）を Quaternion に変換
             );
-
-            // 2. 生成したオブジェクトのサイズ（スケール）を指定
+            // 生成したオブジェクトのサイズ（スケール）を指定
             newObject.transform.localScale = BahudaSpawnScale;
+
+            Huda BahudaComponent = newObject.GetComponent<Huda>();
+            BahudaComponent.Initialize(mo, or);
+            Bahuda[mo].Add(BahudaComponent);
+
+            int nonEmptyMonthCount = 0;
+            {
+                for (int i = 0; i < Bahuda.Length; i++)
+                {
+                    if (Bahuda[i] != null && Bahuda[i].Count > 0)
+                    {
+                        nonEmptyMonthCount++;
+                    }
+                }
+            }
+            if (nonEmptyMonthCount >= 8) break;
         }
-        //Aの手札を表示
-        for (int i=0;i<8;i++)
+
+        //Aの手札を設定
+        for (int i = 0; i < 8; i++)
         {
-            spawnPositionsOfTehudaA[i] =new Vector3 (
-                -4f + (1.2f * i),-7.0f,-2f
+            int NewBahudaNum, mo, or;
+            do
+            {
+                NewBahudaNum = UnityEngine.Random.Range(0, 48);//0-47
+                mo = NewBahudaNum / 4;
+                or = NewBahudaNum % 4;
+            } while (Bahuda_Appeared[mo, or]);
+            Bahuda_Appeared[mo, or] = true;
+
+            spawnPositionsOfTehudaA[i] = new Vector3(
+                -4f + (1.2f * i), -7.0f, -2f
             );
-            // 1. 座標と回転を指定してオブジェクトを生成
-            //    Vector3 の回転（オイラー角）を Quaternion に変換
+            // 座標と回転を指定してオブジェクトを生成
             GameObject newObject = Instantiate(
                 TehudaPrefab,
                 spawnPositionsOfTehudaA[i],
-                Quaternion.Euler(spawnRotation)
+                Quaternion.Euler(spawnRotation)// Vector3 の回転（オイラー角）を Quaternion に変換
             );
-
-            // 2. 生成したオブジェクトのサイズ（スケール）を指定
+            // 生成したオブジェクトのサイズ（スケール）を指定
             newObject.transform.localScale = TehudaSpawnScale;
+
+            Huda BahudaComponent = newObject.GetComponent<Huda>();
+            BahudaComponent.Initialize(mo, or);
+            A_Tehuda[i] = BahudaComponent;
         }
-        //Bの手札を表示
+        //Bの手札を設定
         for (int i = 0; i < 8; i++)
         {
+            int NewBahudaNum, mo, or;
+            do
+            {
+                NewBahudaNum = UnityEngine.Random.Range(0, 48);//0-47
+                mo = NewBahudaNum / 4;
+                or = NewBahudaNum % 4;
+            } while (Bahuda_Appeared[mo, or]);
+            Bahuda_Appeared[mo, or] = true;
             spawnPositionsOfTehudaB[i] = new Vector3(
                 -4f + (1.2f * i), 7.0f, -2f
             );
-            // 1. 座標と回転を指定してオブジェクトを生成
-            //    Vector3 の回転（オイラー角）を Quaternion に変換
+            // 座標と回転を指定してオブジェクトを生成
             GameObject newObject = Instantiate(
                 TehudaPrefab,
                 spawnPositionsOfTehudaB[i],
-                Quaternion.Euler(spawnRotation)
+                Quaternion.Euler(spawnRotation)// Vector3 の回転（オイラー角）を Quaternion に変換
             );
-
-            // 2. 生成したオブジェクトのサイズ（スケール）を指定
+            // 生成したオブジェクトのサイズ（スケール）を指定
             newObject.transform.localScale = TehudaSpawnScale;
+
+            Huda BahudaComponent = newObject.GetComponent<Huda>();
+            BahudaComponent.Initialize(mo, or);
+            B_Tehuda[i] = BahudaComponent;
         }
-        
+
+        //Debug.Log("Bahuda");
+        //Debug.Log("A_Tehuda");
+        //Debug.Log("B_Tehuda");
+        //foreach(List<Huda> tmp in Bahuda)
+        //{
+        //    foreach(Huda h in tmp) Debug.Log($"Tsuki: {h.Tsuki}, Order: {h.Order}");
+        //}
+
     }
 
     // Update is called once per frame
