@@ -11,8 +11,8 @@ public class SetUpManager : MonoBehaviour
 
     // 2. インスペクタから座標・回転・サイズを指定
     [Header("トランスフォーム設定")]
-    public Vector3[] spawnPositionsOfA = new Vector3[8];
-    public Vector3[] spawnPositionsOfB = new Vector3[8];
+    private Vector3[] spawnPositionsOfTehudaA = new Vector3[8];
+    private Vector3[] spawnPositionsOfTehudaB = new Vector3[8];
     public Vector3[] spawnPositionsOfBahuda = new Vector3[12];
 
     // (X, Y, Z) の角度（オイラー角）で指定
@@ -50,14 +50,14 @@ public class SetUpManager : MonoBehaviour
         //Aの手札を表示
         for (int i=0;i<8;i++)
         {
-            spawnPositionsOfA[i] =new Vector3 (
-                -4f + (1.2f * i),-7.0f,0.0f
+            spawnPositionsOfTehudaA[i] =new Vector3 (
+                -4f + (1.2f * i),-7.0f,-2f
             );
             // 1. 座標と回転を指定してオブジェクトを生成
             //    Vector3 の回転（オイラー角）を Quaternion に変換
             GameObject newObject = Instantiate(
                 TehudaPrefab,
-                spawnPositionsOfA[i],
+                spawnPositionsOfTehudaA[i],
                 Quaternion.Euler(spawnRotation)
             );
 
@@ -67,14 +67,14 @@ public class SetUpManager : MonoBehaviour
         //Bの手札を表示
         for (int i = 0; i < 8; i++)
         {
-            spawnPositionsOfB[i] = new Vector3(
-                -4f + (1.2f * i), 7.0f, 0.0f
+            spawnPositionsOfTehudaB[i] = new Vector3(
+                -4f + (1.2f * i), 7.0f, -2f
             );
             // 1. 座標と回転を指定してオブジェクトを生成
             //    Vector3 の回転（オイラー角）を Quaternion に変換
             GameObject newObject = Instantiate(
                 TehudaPrefab,
-                spawnPositionsOfB[i],
+                spawnPositionsOfTehudaB[i],
                 Quaternion.Euler(spawnRotation)
             );
 
