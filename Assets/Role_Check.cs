@@ -12,7 +12,7 @@ public class Role_Check : MonoBehaviour
     bool[,] A_Mochihuda, B_Mochihuda;
     bool Is_A;
     
-    //Start()‚æ‚èæ‚ÉÀs‚³‚ê‚é
+    //Start()ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½
     void Awake()
     {
         mainSceneManager=GetComponent<MainSceneManager>();
@@ -30,9 +30,9 @@ public class Role_Check : MonoBehaviour
     {
         
     }
-    public List<string> CheckALLRoles(bool[,] A_Mochihuda, bool[,] B_Mochihuda, bool Is_A)
+    public List<string> CheckALLRoles()
     {
-        //¬—§‚µ‚½–ğ‚ªappend‚³‚ê‚é”z—ñ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½appendï¿½ï¿½ï¿½ï¿½ï¿½zï¿½ï¿½
         List<string> Roles = new List<string> { };
         Roles.Add(Goko(Is_A));
         Roles.Add(HanamiDeIppai(Is_A));
@@ -46,7 +46,7 @@ public class Role_Check : MonoBehaviour
         return Roles;
     }
 
-    //ŒÜŒõAlŒõAOŒõ‚ğƒ`ƒFƒbƒN‚·‚é(”r‘¼)
+    //ï¿½ÜŒï¿½ï¿½Aï¿½lï¿½ï¿½ï¿½Aï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½(ï¿½rï¿½ï¿½)
     private string Goko(bool Is_A = true)
     {
         int count = 0;
@@ -261,14 +261,14 @@ public class Role_Check : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                //1-10Œ‚Ü‚Å‚ÍƒJƒX‚ÌˆÊ’u‚ª“¯‚¶
+                //1-10ï¿½ï¿½ï¿½Ü‚Å‚ÍƒJï¿½Xï¿½ÌˆÊ’uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 for (int j = 2; j < 4; j++)
                 {
                     if (A_Mochihuda[i, j]) count++;
                 }
             }
             if (A_Mochihuda[10, 3]) count++;
-            //12Œ
+            //12ï¿½ï¿½
             for (int j = 1; j < 4; j++)
             {
                 if (A_Mochihuda[11, j]) count++;
@@ -282,14 +282,14 @@ public class Role_Check : MonoBehaviour
         {
             for (int i = 0; i < 10; i++)
             {
-                //1-10Œ‚Ü‚Å‚ÍƒJƒX‚ÌˆÊ’u‚ª“¯‚¶
+                //1-10ï¿½ï¿½ï¿½Ü‚Å‚ÍƒJï¿½Xï¿½ÌˆÊ’uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 for (int j = 2; j < 4; j++)
                 {
                     if (B_Mochihuda[i, j]) count++;
                 }
             }
             if (B_Mochihuda[10, 3]) count++;
-            //12Œ
+            //12ï¿½ï¿½
             for (int j = 1; j < 4; j++)
             {
                 if (B_Mochihuda[11, j]) count++;

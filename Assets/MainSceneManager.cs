@@ -9,32 +9,34 @@ using Unity.VisualScripting;
 
 public class MainSceneManager : MonoBehaviour
 {
-    SetUpManager SetUpManager;
-    //‰ÔD‚ÌƒJ[ƒh‚ğ’è‹`
-    //‡”Ô‚Íhttps://hanafudazukan.hatenablog.com/‚ğQÆ
-    //‚½‚¾‚µ9Œ(‹e)‚ÍÂ’Z‚Æ‹e‚ğ“ü‚ê‘Ö‚¦‚é
+    [SerializeField]SetUpManager SetUpManager;
+    [SerializeField]Role_Check Role_Check;
+    //ï¿½ÔDï¿½ÌƒJï¿½[ï¿½hï¿½ï¿½ï¿½`
+    //ï¿½ï¿½ï¿½Ô‚ï¿½https://hanafudazukan.hatenablog.com/ï¿½ï¿½ï¿½Qï¿½ï¿½
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9ï¿½ï¿½(ï¿½e)ï¿½ÍÂ’Zï¿½Æ‹eï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½
     public bool[,] Bahuda_Appeared = new bool[12, 4];
     public bool[,] A_Mochihuda =new bool[12, 4], B_Mochihuda=new bool [12, 4];
-    //êDF12‚©Œ•ªAd•¡‚Ì‰Â”\«‚ ‚è
-    //ˆê‚©Œ‚ ‚½‚èˆê‚Â‚ÌList
+    //ï¿½ï¿½Dï¿½F12ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½dï¿½ï¿½ï¿½Ì‰Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ê‚©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½List
     public List<Huda>[] Bahuda=new List<Huda>[12];
     public Huda[] A_Tehuda = new Huda[8];
     public Huda[] B_Tehuda = new Huda[8];
     public bool Is_A = true;
+    public List<string> Roles = new List<string>{};
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 60;//ƒtƒŒ[ƒ€ƒŒ[ƒg‚ğ60‚ÉŒÅ’è
-        //êD‚ğ‰Šú‰»
+        Application.targetFrameRate = 60;//ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½gï¿½ï¿½60ï¿½ÉŒÅ’ï¿½
+        //ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < Bahuda.Length; i++) Bahuda[i] = new List<Huda>();
-        SetUpManager =GetComponent<SetUpManager>();
+        //SetUpManager =GetComponent<SetUpManager>();
         SetUpManager.SetUp();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Roles = Role_Check.CheckALLRoles();
     }
 
 }
