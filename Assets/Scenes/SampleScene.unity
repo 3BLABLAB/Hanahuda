@@ -2267,7 +2267,6 @@ GameObject:
   - component: {fileID: 1234261049}
   - component: {fileID: 1234261051}
   - component: {fileID: 1234261053}
-  - component: {fileID: 1234261052}
   - component: {fileID: 1234261054}
   m_Layer: 0
   m_Name: MainSceneManager
@@ -2288,7 +2287,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 416a5a2d281e009489678171164b19f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HudaSprites:
+  - {fileID: 21300000, guid: 0f6c35d4958624f47ace2909d589b050, type: 3}
+  - {fileID: 21300000, guid: facd27a4a9e510349b0443fb199f2fd9, type: 3}
+  - {fileID: 21300000, guid: 49fac5992d7aedb45a461fe00127004d, type: 3}
+  - {fileID: 21300000, guid: cfb90650374926e489d389dc20d20c2d, type: 3}
+  - {fileID: 21300000, guid: 00c0da6823b521948a90defcd917edc0, type: 3}
+  - {fileID: 21300000, guid: 09bcf9667cfc5284bb8f0a85277d87f9, type: 3}
+  - {fileID: 21300000, guid: ae5d1fae91394b1488beee74f11b2e83, type: 3}
+  - {fileID: 21300000, guid: fc3c31eba6d0caa4f86369370a00a49d, type: 3}
+  - {fileID: 21300000, guid: 363b1beb8618d124d805d9e8a495c59c, type: 3}
+  - {fileID: 21300000, guid: db6174af725752445bea87a4da6ceb8e, type: 3}
+  - {fileID: 21300000, guid: f807a3f117493a141adba589df207f17, type: 3}
+  - {fileID: 21300000, guid: 8e662a6b2a178e84ea6cd3ed3755af90, type: 3}
+  - {fileID: 21300000, guid: d7298277db74ba840977a7a3f6a1acd7, type: 3}
+  - {fileID: 21300000, guid: 398170ba47c0cc847a055f5ba244c1b2, type: 3}
+  - {fileID: 21300000, guid: 5ae044cf7f2a55c46a53a0cee833376b, type: 3}
+  - {fileID: 21300000, guid: 293554556807a4946aab822c3477df04, type: 3}
+  - {fileID: 21300000, guid: 524c63cdbf3648146a65186dd68d8c1f, type: 3}
+  - {fileID: 21300000, guid: a5199b6e48d193c4b9f5d5f53cac68ba, type: 3}
+  - {fileID: 21300000, guid: 5c1aa1d93efe56f4c8da03610ccc2731, type: 3}
+  - {fileID: 21300000, guid: f5abd7e64ba1ced468aa82699a5a412b, type: 3}
+  - {fileID: 21300000, guid: 4251b3f3ff7c5d748a0498284cd57f95, type: 3}
+  - {fileID: 21300000, guid: 36ee905dfff81914da0b94e58a82a4c4, type: 3}
+  - {fileID: 21300000, guid: 8132061a603856c4c997e25e1b0acfbc, type: 3}
+  - {fileID: 21300000, guid: 514d1cfb0194f4349b8ba4148dbea049, type: 3}
+  - {fileID: 21300000, guid: 8bb3c94f03b51b44faf401db4fc6fd18, type: 3}
+  - {fileID: 21300000, guid: 61af83a4cddaf7645aad67319102a16d, type: 3}
+  - {fileID: 21300000, guid: 9c24c3f15541f8e4ab65d16e54c4f9c3, type: 3}
+  - {fileID: 21300000, guid: 399dc9df545212e49b882d86c1e3a1d3, type: 3}
+  - {fileID: 21300000, guid: f6853b52013587346bf38594aa3f7592, type: 3}
+  - {fileID: 21300000, guid: 1e104b7d2c3b1e74f94870b3af41951b, type: 3}
+  - {fileID: 21300000, guid: e2227dcf6d33fbc409eb52411b00be8a, type: 3}
+  - {fileID: 21300000, guid: 32d6dc3f3c5633d47985541f54f50cc5, type: 3}
+  - {fileID: 21300000, guid: 56e7bfcb8a17303469f4246d8eadd5d5, type: 3}
+  - {fileID: 21300000, guid: 871975145bb59d94da988e6ac8110124, type: 3}
+  - {fileID: 21300000, guid: b686a38072c8ace438aca4433c672c29, type: 3}
+  - {fileID: 21300000, guid: 78eaad49643ebc6498c52e74e7a2f075, type: 3}
+  - {fileID: 21300000, guid: 3ebd7cd1b990c3f469fb24ebfcbc6fc8, type: 3}
+  - {fileID: 21300000, guid: 46be551c77ccd7341afa62b687b158fc, type: 3}
+  - {fileID: 21300000, guid: e1cf45014f3d99d43b72b826087c3b3a, type: 3}
+  - {fileID: 21300000, guid: a60a96137fde8984bb30f11ef56f8e09, type: 3}
+  - {fileID: 21300000, guid: 780f0b4f102e0984e9f23b1556f6ef8c, type: 3}
+  - {fileID: 21300000, guid: e053de93bbadd5842bbe633d570ec876, type: 3}
+  - {fileID: 21300000, guid: ec11ce33becf1a34b947a1a59e379aa2, type: 3}
+  - {fileID: 21300000, guid: ecdd25a9232e67c45af8657851e6e1b5, type: 3}
+  - {fileID: 21300000, guid: e5deb2be45beef34492825c6ced0d315, type: 3}
+  - {fileID: 21300000, guid: 84c319d92f54d3e49b3bc0a470cb4623, type: 3}
+  - {fileID: 21300000, guid: f1000f6ef5ea19b4dbd9b0b5460bc28e, type: 3}
+  - {fileID: 21300000, guid: b54c406c08ed8594d96d1709db847922, type: 3}
+  A_Tehuda:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  B_Tehuda:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Is_A: 1
+  Roles: []
 --- !u!4 &1234261050
 Transform:
   m_ObjectHideFlags: 0
@@ -2316,18 +2383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac9af3f00a158554682e1abea8429ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1234261052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234261048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f57f19300a50174b866e0ac50ef19d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1234261053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2352,26 +2407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc95187860bb700498d9802d38a3249b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  A_Tehuda: []
+  B_Tehuda: []
   TehudaPrefab: {fileID: 2069808224}
   BahudaPrefab: {fileID: 2069808224}
-  spawnPositionsOfA:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  spawnPositionsOfB:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
   spawnPositionsOfBahuda:
   - {x: -3.75, y: 1, z: -2}
   - {x: -2.25, y: 1, z: -2}
@@ -3404,6 +3443,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3064707503918759023, guid: 25e531e64e114ea4facfc64696d089f9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7142762040501589286, guid: 25e531e64e114ea4facfc64696d089f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.13

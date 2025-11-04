@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,22 +11,22 @@ public class SetUpManager : MonoBehaviour
     public Huda[] A_Tehuda ;
     public Huda[] B_Tehuda;
 
-    // 1. ƒCƒ“ƒXƒyƒNƒ^‚©‚ç¶¬‚µ‚½‚¢ƒvƒŒƒnƒu‚ğİ’è
-    [Header("¶¬‚·‚éƒvƒŒƒnƒu")]
+    // 1. ã‚¤ãƒ³ã‚¹ãƒšã‚¯ã‚¿ã‹ã‚‰ç”Ÿæˆã—ãŸã„ãƒ—ãƒ¬ãƒãƒ–ã‚’è¨­å®š
+    [Header("ç”Ÿæˆã™ã‚‹ãƒ—ãƒ¬ãƒãƒ–")]
     public GameObject TehudaPrefab;
     public GameObject BahudaPrefab;//TODO
 
-    // 2. ƒCƒ“ƒXƒyƒNƒ^‚©‚çÀ•WE‰ñ“]EƒTƒCƒY‚ğw’è
-    [Header("ƒgƒ‰ƒ“ƒXƒtƒH[ƒ€İ’è")]
+    // 2. ã‚¤ãƒ³ã‚¹ãƒšã‚¯ã‚¿ã‹ã‚‰åº§æ¨™ãƒ»å›è»¢ãƒ»ã‚µã‚¤ã‚ºã‚’æŒ‡å®š
+    [Header("ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒ è¨­å®š")]
     private Vector3[] spawnPositionsOfTehudaA = new Vector3[8];
     private Vector3[] spawnPositionsOfTehudaB = new Vector3[8];
     public Vector3[] spawnPositionsOfBahuda = new Vector3[12];
 
-    // (X, Y, Z) ‚ÌŠp“xiƒIƒCƒ‰[Špj‚Åw’è
+    // (X, Y, Z) ã®è§’åº¦ï¼ˆã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼‰ã§æŒ‡å®š
     public Vector3 spawnRotation = new Vector3(0, 0, 0);
 
-    //ƒXƒP[ƒ‹
-    //ƒCƒ“ƒXƒyƒNƒ^[‚Ì’l‚ª—Dæ‚³‚ê‚é
+    //ã‚¹ã‚±ãƒ¼ãƒ«
+    //ã‚¤ãƒ³ã‚¹ãƒšã‚¯ã‚¿ãƒ¼ã®å€¤ãŒå„ªå…ˆã•ã‚Œã‚‹
     public Vector3 TehudaSpawnScale = new Vector3(1, 1, 1);
     public Vector3 BahudaSpawnScale = new Vector3(1, 1, 1);
 
@@ -40,19 +40,20 @@ public class SetUpManager : MonoBehaviour
     }
     public void SetUp()
     {
-        //Awake()‚Å‘ã“ü‚·‚é‚Æ‡˜‚ª‚¸‚ê‚é‰Â”\«‚ ‚è
+        //Awake()ã§ä»£å…¥ã™ã‚‹ã¨é †åºãŒãšã‚Œã‚‹å¯èƒ½æ€§ã‚ã‚Š
         Bahuda_Appeared = mainSceneManager.Bahuda_Appeared;
         Bahuda = mainSceneManager.Bahuda;
         A_Tehuda = mainSceneManager.A_Tehuda;
         B_Tehuda = mainSceneManager.B_Tehuda;
-        // ƒvƒŒƒnƒu‚ªİ’è‚³‚ê‚Ä‚¢‚é‚©Šm”F
+        Sprite[] spritesToPass = mainSceneManager.HudaSprites;
+        // ãƒ—ãƒ¬ãƒãƒ–ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ç¢ºèª
         if (TehudaPrefab == null)
         {
-            Debug.LogError("Object Prefab ‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñI");
+            Debug.LogError("Object Prefab ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ï¼");
             return;
         }
 
-        //êD‚ğİ’è
+        //å ´æœ­ã‚’è¨­å®š
         while(true)  
         {
             int NewBahudaNum,mo,or ;
@@ -64,17 +65,17 @@ public class SetUpManager : MonoBehaviour
             } while (Bahuda_Appeared[mo, or]);
             Bahuda_Appeared[mo, or] = true;
 
-            // À•W‚Æ‰ñ“]‚ğw’è‚µ‚ÄƒIƒuƒWƒFƒNƒg‚ğ¶¬
+            // åº§æ¨™ã¨å›è»¢ã‚’æŒ‡å®šã—ã¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
             GameObject newObject = Instantiate(
                 BahudaPrefab,
                 spawnPositionsOfBahuda[mo],
-                Quaternion.Euler(spawnRotation)// Vector3 ‚Ì‰ñ“]iƒIƒCƒ‰[Špj‚ğ Quaternion ‚É•ÏŠ·
+                Quaternion.Euler(spawnRotation)// Vector3 ã®å›è»¢ï¼ˆã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼‰ã‚’ Quaternion ã«å¤‰æ›
             );
-            // ¶¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚ÌƒTƒCƒYiƒXƒP[ƒ‹j‚ğw’è
+            // ç”Ÿæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚µã‚¤ã‚ºï¼ˆã‚¹ã‚±ãƒ¼ãƒ«ï¼‰ã‚’æŒ‡å®š
             newObject.transform.localScale = BahudaSpawnScale;
 
             Huda BahudaComponent = newObject.GetComponent<Huda>();
-            BahudaComponent.Initialize(mo, or);
+            BahudaComponent.Initialize(mo, or, spritesToPass);
             Bahuda[mo].Add(BahudaComponent);
 
             int nonEmptyMonthCount = 0;
@@ -90,7 +91,7 @@ public class SetUpManager : MonoBehaviour
             if (nonEmptyMonthCount >= 8) break;
         }
 
-        //A‚ÌèD‚ğİ’è
+        //Aã®æ‰‹æœ­ã‚’è¨­å®š
         for (int i = 0; i < 8; i++)
         {
             int NewBahudaNum, mo, or;
@@ -105,20 +106,20 @@ public class SetUpManager : MonoBehaviour
             spawnPositionsOfTehudaA[i] = new Vector3(
                 -4f + (1.2f * i), -7.0f, -2f
             );
-            // À•W‚Æ‰ñ“]‚ğw’è‚µ‚ÄƒIƒuƒWƒFƒNƒg‚ğ¶¬
+            // åº§æ¨™ã¨å›è»¢ã‚’æŒ‡å®šã—ã¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
             GameObject newObject = Instantiate(
                 TehudaPrefab,
                 spawnPositionsOfTehudaA[i],
-                Quaternion.Euler(spawnRotation)// Vector3 ‚Ì‰ñ“]iƒIƒCƒ‰[Špj‚ğ Quaternion ‚É•ÏŠ·
+                Quaternion.Euler(spawnRotation)// Vector3 ã®å›è»¢ï¼ˆã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼‰ã‚’ Quaternion ã«å¤‰æ›
             );
-            // ¶¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚ÌƒTƒCƒYiƒXƒP[ƒ‹j‚ğw’è
+            // ç”Ÿæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚µã‚¤ã‚ºï¼ˆã‚¹ã‚±ãƒ¼ãƒ«ï¼‰ã‚’æŒ‡å®š
             newObject.transform.localScale = TehudaSpawnScale;
 
             Huda BahudaComponent = newObject.GetComponent<Huda>();
-            BahudaComponent.Initialize(mo, or);
+            BahudaComponent.Initialize(mo, or, spritesToPass);
             A_Tehuda[i] = BahudaComponent;
         }
-        //B‚ÌèD‚ğİ’è
+        //Bã®æ‰‹æœ­ã‚’è¨­å®š
         for (int i = 0; i < 8; i++)
         {
             int NewBahudaNum, mo, or;
@@ -132,17 +133,17 @@ public class SetUpManager : MonoBehaviour
             spawnPositionsOfTehudaB[i] = new Vector3(
                 -4f + (1.2f * i), 7.0f, -2f
             );
-            // À•W‚Æ‰ñ“]‚ğw’è‚µ‚ÄƒIƒuƒWƒFƒNƒg‚ğ¶¬
+            // åº§æ¨™ã¨å›è»¢ã‚’æŒ‡å®šã—ã¦ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
             GameObject newObject = Instantiate(
                 TehudaPrefab,
                 spawnPositionsOfTehudaB[i],
-                Quaternion.Euler(spawnRotation)// Vector3 ‚Ì‰ñ“]iƒIƒCƒ‰[Špj‚ğ Quaternion ‚É•ÏŠ·
+                Quaternion.Euler(spawnRotation)// Vector3 ã®å›è»¢ï¼ˆã‚ªã‚¤ãƒ©ãƒ¼è§’ï¼‰ã‚’ Quaternion ã«å¤‰æ›
             );
-            // ¶¬‚µ‚½ƒIƒuƒWƒFƒNƒg‚ÌƒTƒCƒYiƒXƒP[ƒ‹j‚ğw’è
+            // ç”Ÿæˆã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚µã‚¤ã‚ºï¼ˆã‚¹ã‚±ãƒ¼ãƒ«ï¼‰ã‚’æŒ‡å®š
             newObject.transform.localScale = TehudaSpawnScale;
 
             Huda BahudaComponent = newObject.GetComponent<Huda>();
-            BahudaComponent.Initialize(mo, or);
+            BahudaComponent.Initialize(mo, or, spritesToPass);
             B_Tehuda[i] = BahudaComponent;
         }
 

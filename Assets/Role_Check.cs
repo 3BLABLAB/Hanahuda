@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -86,14 +86,14 @@ public class Role_Check : MonoBehaviour
     {
         if (Is_A)
         {
-            if (A_Mochihuda[2, 0] && A_Mochihuda[8, 1])
+            if (A_Mochihuda[2, 0] && A_Mochihuda[8, 0])
             {
                 return "HanamiDeIppai";
             }
         }
         else
         {
-            if (B_Mochihuda[2, 0] && B_Mochihuda[8, 1])
+            if (B_Mochihuda[2, 0] && B_Mochihuda[8, 0])
             {
                 return "HanamiDeIppai";
             }
@@ -105,14 +105,14 @@ public class Role_Check : MonoBehaviour
     {
         if (Is_A)
         {
-            if (A_Mochihuda[7, 0] && A_Mochihuda[8, 1])
+            if (A_Mochihuda[7, 0] && A_Mochihuda[8, 0])
             {
                 return "TsukimiDeIppai";
             }
         }
         else
         {
-            if (B_Mochihuda[7, 0] && B_Mochihuda[8, 1])
+            if (B_Mochihuda[7, 0] && B_Mochihuda[8, 0])
             {
                 return "TsukimiDeIppai";
             }

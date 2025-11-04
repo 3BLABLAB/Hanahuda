@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -9,8 +9,9 @@ using Unity.VisualScripting;
 
 public class MainSceneManager : MonoBehaviour
 {
-    [SerializeField]SetUpManager SetUpManager;
-    [SerializeField]Role_Check Role_Check;
+    SetUpManager SetUpManager;
+    Role_Check Role_Check;
+    [SerializeField] public Sprite[] HudaSprites = new Sprite[48];
     //�ԎD�̃J�[�h���`
     //���Ԃ�https://hanafudazukan.hatenablog.com/���Q��
     //������9��(�e)�͐Z�Ƌe�����ւ���
@@ -29,7 +30,8 @@ public class MainSceneManager : MonoBehaviour
         Application.targetFrameRate = 60;//�t���[�����[�g��60�ɌŒ�
         //��D��������
         for (int i = 0; i < Bahuda.Length; i++) Bahuda[i] = new List<Huda>();
-        //SetUpManager =GetComponent<SetUpManager>();
+        SetUpManager =GetComponent<SetUpManager>();
+        Role_Check = GetComponent<Role_Check>();
         SetUpManager.SetUp();
     }
 
