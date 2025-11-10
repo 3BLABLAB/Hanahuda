@@ -72,7 +72,7 @@ public class SetUpManager : MonoBehaviour
                 Quaternion.Euler(spawnRotation)// Vector3 の回転（オイラー角）を Quaternion に変換
             );
             // 生成したオブジェクトのサイズ（スケール）を指定
-            newObject.transform.localScale = BahudaSpawnScale;
+            //newObject.transform.localScale = BahudaSpawnScale;
 
             Huda BahudaComponent = newObject.GetComponent<Huda>();
             BahudaComponent.Initialize(mo, or, spritesToPass);
@@ -113,7 +113,7 @@ public class SetUpManager : MonoBehaviour
                 Quaternion.Euler(spawnRotation)// Vector3 の回転（オイラー角）を Quaternion に変換
             );
             // 生成したオブジェクトのサイズ（スケール）を指定
-            newObject.transform.localScale = TehudaSpawnScale;
+            //newObject.transform.localScale = TehudaSpawnScale;
 
             Huda BahudaComponent = newObject.GetComponent<Huda>();
             BahudaComponent.Initialize(mo, or, spritesToPass);
@@ -140,7 +140,7 @@ public class SetUpManager : MonoBehaviour
                 Quaternion.Euler(spawnRotation)// Vector3 の回転（オイラー角）を Quaternion に変換
             );
             // 生成したオブジェクトのサイズ（スケール）を指定
-            newObject.transform.localScale = TehudaSpawnScale;
+            //newObject.transform.localScale = TehudaSpawnScale;
 
             Huda BahudaComponent = newObject.GetComponent<Huda>();
             BahudaComponent.Initialize(mo, or, spritesToPass);

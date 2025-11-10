@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class Huda : MonoBehaviour
@@ -11,6 +12,8 @@ public class Huda : MonoBehaviour
     // { get; private set; } は、このクラスの外部からは変更できないが、参照はできるという意味
     public int Tsuki { get; private set; }
     public int Order { get; private set; }
+
+    
     private void Awake()
     {
         //image = GetComponent<Image>();
@@ -28,9 +31,10 @@ public class Huda : MonoBehaviour
     {
         int index = 4 * this.Tsuki + this.Order;
         Debug.Log(index);
+        Sprite spriteToSet = HudaSprites[0];
         if (SpriteRenderer != null && HudaSprites != null && index >= 0 && index < HudaSprites.Length)
         {
-            this.SpriteRenderer.sprite = HudaSprites[index];
+            this.SpriteRenderer.sprite = spriteToSet;
         }
         else
         {
@@ -39,6 +43,8 @@ public class Huda : MonoBehaviour
             if (HudaSprites == null) Debug.LogError("HudaSprites 配列が null です。");
             if (index < 0 || index >= HudaSprites.Length) Debug.LogError($"インデックス {index} が配列の範囲外です (Size: {HudaSprites.Length})。");
         }
+        this.SpriteRenderer.sprite = spriteToSet;
+
     }
     // Start is called before the first frame update
     void Start()
